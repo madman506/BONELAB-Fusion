@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 
 using LabFusion.Downloading;
 using LabFusion.Downloading.ModIO;
@@ -86,7 +86,7 @@ public static class NetworkModRequester
         if (!receivedCallback)
         {
 #if DEBUG
-            FusionLogger.Warn($"Mod request for {installInfo.barcode} timed out.");
+           // FusionLogger.Warn($"Mod request for {installInfo.barcode} timed out.");
 #endif
 
             installInfo.FinishDownloadCallback?.Invoke(DownloadCallbackInfo.FailedCallback);
