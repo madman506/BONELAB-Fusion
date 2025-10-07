@@ -1,4 +1,4 @@
-﻿namespace LabFusion.Network;
+namespace LabFusion.Network;
 
 public static class LobbyMetadataSerializer
 {
@@ -16,7 +16,7 @@ public static class LobbyMetadataSerializer
         catch (Exception e)
         {
 #if DEBUG
-            FusionLogger.LogException("reading lobby info", e);
+            //FusionLogger.LogException("reading lobby info", e);
 #endif
 
             return new LobbyMetadataInfo() { HasServerOpen = false };
