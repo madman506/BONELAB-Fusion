@@ -1,4 +1,4 @@
-﻿using LabFusion.Extensions;
+using LabFusion.Extensions;
 using LabFusion.Network;
 
 using System.Text.RegularExpressions;
@@ -29,16 +29,7 @@ public static class FusionMasterList
     }
 
     private static readonly MasterPlayer[] _steamPlayers = new MasterPlayer[] {
-        // Fusion testers
-        new(76561198198752494, "Lakatrazz"),
-        new(76561198097630377, "AlexTheBaBa"),
-        new(76561198222917852, "Mr.Gaming"),
-        new(76561198096586464, "brwok"),
-        new(76561198143565238, "Riggle"),
-        new(76561198233973112, "Alfie", false),
-        new(76561198061847729, "zz0000"),
-        new(76561198837064193, "172", false),
-        new(76561198147092613, "Eli", false),
+
     };
 
     public static FusionMasterResult VerifyPlayer(ulong id, string name)
