@@ -24,7 +24,7 @@ public static class LocalVision
         }
     }
 
-    private static Color _blindColor = Color.black;
+    private static Color _blindColor = Color.clear;
     public static Color BlindColor
     {
         get
@@ -49,20 +49,7 @@ public static class LocalVision
 
     private static void OnMainSceneInitialized()
     {
-        // Create blindness image
-        _blindnessGameObject = new GameObject("Blindness");
-        var canvas = _blindnessGameObject.AddComponent<Canvas>();
-
-        canvas.renderMode = RenderMode.WorldSpace;
-        var canvasTransform = _blindnessGameObject.transform;
-        canvasTransform.parent = RigData.Refs.Headset;
-        canvasTransform.localPosition = Vector3Extensions.forward * 0.05f;
-        canvasTransform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-        canvasTransform.localScale = Vector3Extensions.one * 10f;
-
-        _blindnessImage = _blindnessGameObject.AddComponent<RawImage>();
-
-        ApplyVisionSettings();
+    //
     }
 
     private static void ApplyVisionSettings()

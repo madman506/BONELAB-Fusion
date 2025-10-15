@@ -40,24 +40,16 @@ namespace LabFusion;
 
 public struct FusionVersion
 {
-#if DEBUG
-    public const byte VersionMajor = 0;
-    public const byte VersionMinor = 0;
-    public const short VersionPatch = 0;
-
-    public const string VersionString = "0.0.0";
-#else
     public const byte VersionMajor = 1;
     public const byte VersionMinor = 12;
     public const short VersionPatch = 2;
 
     public const string VersionString = "1.12.2";
-#endif
 }
 
 public class FusionMod : MelonMod
 {
-    public const string ModName = "LabFusionv2";
+    public const string ModName = "LabFusion";
     public const string ModAuthor = "madman";
 
     public const string GameDeveloper = "Stress Level Zero";
