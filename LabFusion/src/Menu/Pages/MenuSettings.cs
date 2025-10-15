@@ -5,6 +5,7 @@ using LabFusion.Downloading.ModIO;
 using LabFusion.Extensions;
 using LabFusion.Marrow;
 using LabFusion.Marrow.Proxies;
+using LabFusion.Player;
 using LabFusion.Preferences.Client;
 using LabFusion.Representation;
 using LabFusion.Safety;
@@ -246,6 +247,37 @@ public static class MenuSettings
                     physRig.leftHand.rb.AddForce(Vector3Extensions.down * force, ForceMode.VelocityChange);
                 }
             });
+        var usernameLabel = generalGroup.AddElement<StringElement>("Username");
+        usernameLabel.Value = LocalPlayer.Username;
+
+        // Wrap it in a FunctionElement to detect clicks
+        generalGroup.AddElement<FunctionElement>("Edit Username")
+            .WithColor(Color.cyan)
+            .Do(() =>
+            {
+                MenuKeyboardHelper.AssignKeyboardToButton(usernameLabel);
+
+                var keyboard = MenuCreator.MenuPopups.Keyboard;
+
+                keyboard.OnEnter = () =>
+                {
+                    LocalPlayer.Username = keyboard.Value;
+                    MenuKeyboardHelper.CloseKeyboard();
+
+                    Notifier.Send(new Notification()
+                    {
+                        Title = "Username Changed",
+                        Message = $"New username: {LocalPlayer.Username}",
+                        Type = NotificationType.SUCCESS,
+                        SaveToMenu = false,
+                        ShowPopup = true,
+                    });
+
+                    // Update the label text
+                    usernameLabel.Value = LocalPlayer.Username;
+                };
+            });
+
     }
-#endif
 }
+#endif
